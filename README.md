@@ -1,2 +1,2 @@
-# rogers-vinyl.github.io
+# rogers-vinyl
 My jazz records collection
