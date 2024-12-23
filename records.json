@@ -4,7 +4,7 @@
         "recordName": "Go!",
         "genre": "Hard bob",
         "recordLabel": "Blue Note",
-        "date": "1962-05-01",
+        "year": "1962",
         "images": [
             "rw.jpg",
             "albums/gordon-go/gs.jpg"
@@ -15,7 +15,7 @@
         "recordName": "Undercurrent",
         "genre": "Bebob",
         "recordLabel": "Blue Note",
-        "date": "1961-05-01",
+        "year": "1961",
         "images": [
             "path/to/image1.jpg",
             "path/to/image2.jpg"
