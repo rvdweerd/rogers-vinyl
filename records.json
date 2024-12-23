@@ -1,21 +1,21 @@
 [
     {
-        "artist": "Artist Name",
-        "recordName": "Record Name",
-        "genre": "Genre",
-        "recordLabel": "Record Label",
-        "date": "YYYY-MM-DD",
+        "artist": "Dexter Gordon",
+        "recordName": "Go!",
+        "genre": "Hard bob",
+        "recordLabel": "Blue Note",
+        "date": "1962-05-01",
         "images": [
             "rw.jpg",
             "path/to/image2.jpg"
         ]
     },
     {
-        "artist": "Another Artist",
-        "recordName": "Another Record",
-        "genre": "Another Genre",
-        "recordLabel": "Another Label",
-        "date": "YYYY-MM-DD",
+        "artist": "Kenny Drew",
+        "recordName": "Undercurrent",
+        "genre": "Bebob",
+        "recordLabel": "Blue Note",
+        "date": "1961-05-01",
         "images": [
             "path/to/image1.jpg",
             "path/to/image2.jpg"
