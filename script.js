@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Record Label:</strong> ${record.recordLabel}</p>
                 <p><strong>Year of Publishing:</strong> ${record.year}</p>
                 <div class="expanded-images">
-                    ${record.images.map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
+                    ${record.images.slice(1).map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
                 </div>
             `;
             recordCollection.appendChild(recordElement);
