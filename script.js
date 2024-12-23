@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search');
     const filterCategory = document.getElementById('filter-category');
     const autocompleteOptions = document.getElementById('autocomplete-options');
+    const fullscreenContainer = document.getElementById('fullscreen-container');
+    const fullscreenImage = document.getElementById('fullscreen-image');
 
     // Fetch records data from JSON
     fetch('records.json')
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Record Label:</strong> ${record.recordLabel}</p>
                 <p><strong>Year of Publishing:</strong> ${record.year}</p>
                 <div class="expanded-images">
-                    ${record.images.slice(1).map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
+                    ${record.images.map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
                 </div>
             `;
             recordCollection.appendChild(recordElement);
@@ -39,6 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const expandedImages = recordElement.querySelector('.expanded-images');
             mainImage.addEventListener('click', () => {
                 expandedImages.classList.toggle('expanded');
+            });
+
+            // Add click event listener to each expanded image for full-screen view
+            expandedImages.querySelectorAll('img').forEach(img => {
+                img.addEventListener('click', (event) => {
+                    fullscreenImage.src = event.target.src;
+                    fullscreenContainer.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Disable scrolling
+                });
             });
         });
     }
@@ -70,4 +81,20 @@ document.addEventListener('DOMContentLoaded', () => {
             autocompleteOptions.appendChild(option);
         });
     }
+
+    // Close the full-screen view when pressing Escape
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            fullscreenContainer.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+    });
+
+    // Close the full-screen view when clicking outside the image
+    fullscreenContainer.addEventListener('click', (event) => {
+        if (event.target === fullscreenContainer) {
+            fullscreenContainer.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+    });
 });
