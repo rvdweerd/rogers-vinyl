@@ -22,5 +22,29 @@
             "path/to/image1.jpg",
             "path/to/image2.jpg"
         ]
+    },
+        {
+        "artist": "Dexter Gordon",
+        "recordName": "Go!",
+        "genre": "Hard bob",
+        "recordLabel": "Blue Note",
+        "year": "1962",
+        "images": [
+            "albums/gordon-go/gs.jpg",
+            "albums/gordon-go/IMG_2320.JPG",
+            "albums/gordon-go/IMG_2321.JPG",
+            "albums/gordon-go/IMG_2324.JPG"
+        ]
+    },
+    {
+        "artist": "Kenny Drew",
+        "recordName": "Undercurrent",
+        "genre": "Bebob",
+        "recordLabel": "Blue Note",
+        "year": "1961",
+        "images": [
+            "path/to/image1.jpg",
+            "path/to/image2.jpg"
+        ]
     }
 ]
