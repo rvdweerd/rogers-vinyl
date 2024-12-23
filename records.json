@@ -6,7 +6,7 @@
         "recordLabel": "Record Label",
         "date": "YYYY-MM-DD",
         "images": [
-            "path/to/image1.jpg",
+            "rw.jpg",
             "path/to/image2.jpg"
         ]
     },
