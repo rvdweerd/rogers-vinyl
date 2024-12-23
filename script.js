@@ -2,13 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const recordCollection = document.getElementById('record-collection');
     const searchInput = document.getElementById('search');
     const filterCategory = document.getElementById('filter-category');
+    const autocompleteOptions = document.getElementById('autocomplete-options');
 
     // Fetch records data from JSON
     fetch('records.json')
         .then(response => response.json())
         .then(data => {
             displayRecords(data);
-            searchInput.addEventListener('input', () => filterRecords(data));
+            searchInput.addEventListener('input', () => {
+                filterRecords(data);
+                updateAutocompleteOptions(data);
+            });
             filterCategory.addEventListener('change', () => filterRecords(data));
         });
 
@@ -43,5 +47,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         displayRecords(filteredRecords);
+    }
+
+    function updateAutocompleteOptions(records) {
+        const query = searchInput.value.toLowerCase();
+        const category = filterCategory.value;
+        const suggestions = new Set();
+        
+        records.forEach(record => {
+            if (category === 'all') {
+                Object.values(record).forEach(value => {
+                    if (value.toLowerCase().includes(query)) {
+                        suggestions.add(value);
+                    }
+                });
+            } else if (record[category].toLowerCase().includes(query)) {
+                suggestions.add(record[category]);
+            }
+        });
+
+        autocompleteOptions.innerHTML = '';
+        suggestions.forEach(suggestion => {
+            const option = document.createElement('option');
+            option.value = suggestion;
+            autocompleteOptions.appendChild(option);
+        });
     }
 });
