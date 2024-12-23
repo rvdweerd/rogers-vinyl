@@ -71,6 +71,7 @@ main {
 .expanded-images img {
     max-width: 100px;
     margin: 0.5rem;
+    cursor: pointer;
 }
 
 .expanded {
@@ -94,4 +95,25 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#fullscreen-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#fullscreen-container img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.hidden {
+    display: none;
 }
