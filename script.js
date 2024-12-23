@@ -22,17 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const recordElement = document.createElement('div');
             recordElement.className = 'record';
             recordElement.innerHTML = `
-                <img src="${record.images[0]}" alt="${record.recordName}">
+                <img src="${record.images[0]}" alt="${record.recordName}" class="main-image">
                 <h3>${record.recordName}</h3>
                 <p><strong>Artist:</strong> ${record.artist}</p>
                 <p><strong>Genre:</strong> ${record.genre}</p>
                 <p><strong>Record Label:</strong> ${record.recordLabel}</p>
                 <p><strong>Year of Publishing:</strong> ${record.year}</p>
-                <div class="record-images">
-                    ${record.images.map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
+                <div class="expanded-images">
+                    ${record.images.slice(1).map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
                 </div>
             `;
             recordCollection.appendChild(recordElement);
+
+            // Add click event listener to toggle expanded view
+            const mainImage = recordElement.querySelector('.main-image');
+            const expandedImages = recordElement.querySelector('.expanded-images');
+            mainImage.addEventListener('click', () => {
+                expandedImages.classList.toggle('expanded');
+            });
         });
     }
 
