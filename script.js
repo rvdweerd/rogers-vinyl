@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Artist:</strong> ${record.artist}</p>
                 <p><strong>Genre:</strong> ${record.genre}</p>
                 <p><strong>Record Label:</strong> ${record.recordLabel}</p>
-                <p><strong>Date of Publishing:</strong> ${record.date}</p>
+                <p><strong>Year of Publishing:</strong> ${record.year}</p>
                 <div class="record-images">
                     ${record.images.map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
                 </div>
