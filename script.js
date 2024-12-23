@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Record Label:</strong> ${record.recordLabel}</p>
                 <p><strong>Year of Publishing:</strong> ${record.year}</p>
                 <div class="expanded-images">
-                    ${record.images.slice(1).map(src => `<img src="${src}" alt="${record.recordName}">`).join('')}
+                    ${record.images.slice(1).map(src => `<img src="${src}" alt="${record.recordName}" class="thumbnail">`).join('')}
                 </div>
             `;
             recordCollection.appendChild(recordElement);
@@ -44,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Add click event listener to each expanded image for full-screen view
-            expandedImages.querySelectorAll('img').forEach(img => {
+            expandedImages.querySelectorAll('.thumbnail').forEach(img => {
                 img.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent the main image click event from triggering
                     fullscreenImage.src = event.target.src;
                     fullscreenContainer.classList.remove('hidden');
                     document.body.style.overflow = 'hidden'; // Disable scrolling
