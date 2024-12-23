@@ -52,6 +52,7 @@ main {
     padding: 1rem;
     width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .record img {
@@ -60,6 +61,20 @@ main {
 
 .record h3 {
     margin: 0.5rem 0;
+}
+
+.expanded-images {
+    display: none;
+    margin-top: 1rem;
+}
+
+.expanded-images img {
+    max-width: 100px;
+    margin: 0.5rem;
+}
+
+.expanded {
+    display: block;
 }
 
 footer {
