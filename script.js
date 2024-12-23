@@ -40,11 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.toLowerCase();
         const category = filterCategory.value;
         const filteredRecords = records.filter(record => {
-            if (category === 'all') {
-                return Object.values(record).some(value => value.toLowerCase().includes(query));
-            } else {
-                return record[category].toLowerCase().includes(query);
-            }
+            return record[category].toLowerCase().includes(query);
         });
         displayRecords(filteredRecords);
     }
@@ -55,13 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const suggestions = new Set();
         
         records.forEach(record => {
-            if (category === 'all') {
-                Object.values(record).forEach(value => {
-                    if (value.toLowerCase().includes(query)) {
-                        suggestions.add(value);
-                    }
-                });
-            } else if (record[category].toLowerCase().includes(query)) {
+            if (record[category].toLowerCase().includes(query)) {
                 suggestions.add(record[category]);
             }
         });
